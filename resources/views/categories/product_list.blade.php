@@ -1,3 +1,6 @@
+@extends('layouts.main')
+@section('content')
+@include('categories.list')
 <section class="my-5">
     <div class="container">
         <h2 class="mb-3"> Top Deals</h2>
@@ -18,3 +21,4 @@
         </div>
     </div>
 </section>
+@endsection

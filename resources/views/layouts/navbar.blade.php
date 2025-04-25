@@ -20,24 +20,36 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route ('home') }}">Home</a>
                     </li>
+                    @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{{ route ('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sign Up</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route ('signout') }}">Log out</a>
+                    </li>
+                    @endguest
                 </ul>
-                    <form class="d-flex" role="search">
-                        <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit"><i class='bx bx-search'></i></button>
-                        </div>
-                    </form>
+                <form class="d-flex" role="search">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"><i class='bx bx-search'></i></button>
+                    </div>
+                </form>
+                @guest
+                @else
                 <div class="mx-2">
                     <a class=" btn btn-success" href="#"><i class='bx bxs-cart fs-6'></i>Cart</a>
                 </div>
+                <div class="">
+                    <a class=" btn btn-success" href="#"><i class='bx bxs-user'></i>{{ Auth::user()->name }}</a>
+                </div>
+                @endguest
             </div>
         </div>
     </nav>
