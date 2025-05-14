@@ -1,6 +1,6 @@
 <section class="my-5">
     <div class="container">
-        <h2 class="mb-3"> Top Deals</h2>
+        <h2 class="mb-3"> Top Deals </h2>
         <div class="row">
             @foreach($products as $product)
             <div class="col-lg-3 my-4">
